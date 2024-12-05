@@ -23,7 +23,7 @@ export default function CenteredCodeSubmissionForm() {
   }
 
   return (
-    <div className="flex justify-center items-center h-svh  bg-gray-50">
+    <div className="flex justify-center items-center h-svh ">
       <div className="w-full max-w-md p-6">
         <form
           action={createSnippit}

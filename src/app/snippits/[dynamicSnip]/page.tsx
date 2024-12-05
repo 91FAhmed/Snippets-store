@@ -15,7 +15,7 @@ export default async function DynamicSnip({
     },
   });
 
-  await new Promise((res) => setTimeout(res, 4000));
+  await new Promise((load) => setTimeout(load, 2000));
 
   if (!requestedData) notFound();
   return (

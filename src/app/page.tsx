@@ -1,15 +1,23 @@
 import { db } from "@/db";
 import CodeCard from "@/components/CodeCard";
-import { Button } from "@/components/ui/button";
+
 import Link from "next/link";
 
 export default async function Home() {
   const snippits = await db.snippits.findMany();
 
+  console.log(snippits);
+
   const snips = snippits.map((snip, index) => {
+    console.log(snip.id);
     return (
       <>
-        <CodeCard index={index} title={snip.snipName} code={snip.snipContent} />
+        <CodeCard
+          index={index}
+          title={snip.snipName}
+          code={snip.snipContent}
+          id={snip.id}
+        />
       </>
     );
   });
