@@ -14,7 +14,8 @@ export default async function DynamicSnip({
       id: Number(dynamicSnip),
     },
   });
-  console.log(requestedData);
+
+  await new Promise((res) => setTimeout(res, 4000));
 
   if (!requestedData) notFound();
   return (
