@@ -8,7 +8,7 @@ interface propTypes {
   code: string;
 }
 
-export default function CodeCard({ index, title, code, id }: propTypes) {
+export default await function CodeCard({ index, title, code, id }: propTypes) {
   return (
     <div
       key={index}
@@ -21,9 +21,9 @@ export default function CodeCard({ index, title, code, id }: propTypes) {
         <div className="flex gap-2">
           <Link
             className="block bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-1.5 rounded-md "
-            href={id == undefined ? "/" : `/snippits/${id}`}
+            href={id != undefined ? `/snippits/${id}` : `/snippits/1/edit`}
           >
-            Edit
+            {id != undefined ? "View" : "Edit"}
           </Link>
           <Link
             className="block bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-1.5 rounded-md "
@@ -39,4 +39,4 @@ export default function CodeCard({ index, title, code, id }: propTypes) {
       </pre>
     </div>
   );
-}
+};
