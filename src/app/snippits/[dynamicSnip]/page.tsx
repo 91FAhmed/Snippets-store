@@ -36,12 +36,6 @@ export default async function DynamicSnip({
             >
               Edit
             </Link>
-            <Link
-              className="block bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-1.5 rounded-md "
-              href={`/snippits/${requestedData.id}`}
-            >
-              Delete
-            </Link>
           </div>
         </div>
         <label className="text-gray-500  group-hover:text-gray-600">Code</label>
