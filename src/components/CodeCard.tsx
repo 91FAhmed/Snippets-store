@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface propTypes {
   index?: number;
@@ -8,10 +9,11 @@ interface propTypes {
   code: string;
 }
 
-export default await function CodeCard({ index, title, code, id }: propTypes) {
+export default function CodeCard({ index, title, code, id }: propTypes) {
+  if (!id) return notFound();
   return (
     <div
-      key={index}
+      key={id}
       className="max-w-full mt-4 bg-gray-50 p-3 rounded-md hover:transition-colors hover:bg-gray-100 group"
     >
       <div className="flex justify-between items-center ">
@@ -21,15 +23,9 @@ export default await function CodeCard({ index, title, code, id }: propTypes) {
         <div className="flex gap-2">
           <Link
             className="block bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-1.5 rounded-md "
-            href={id != undefined ? `/snippits/${id}` : `/snippits/1/edit`}
+            href={`/snippits/${id}`}
           >
-            {id != undefined ? "View" : "Edit"}
-          </Link>
-          <Link
-            className="block bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-1.5 rounded-md "
-            href={id == undefined ? "/" : `/snippits/${id}`}
-          >
-            Delete
+            View
           </Link>
         </div>
       </div>
@@ -39,4 +35,4 @@ export default await function CodeCard({ index, title, code, id }: propTypes) {
       </pre>
     </div>
   );
-};
+}

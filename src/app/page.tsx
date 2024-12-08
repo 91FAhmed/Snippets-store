@@ -6,13 +6,11 @@ import Link from "next/link";
 export default async function Home() {
   const snippits = await db.snippits.findMany();
 
-  console.log(snippits);
-
   const snips = snippits.map((snip, index) => {
-    console.log(snip.id);
     return (
       <>
         <CodeCard
+          key={snip.id}
           index={index}
           title={snip.snipName}
           code={snip.snipContent}
